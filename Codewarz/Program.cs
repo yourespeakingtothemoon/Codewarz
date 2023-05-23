@@ -12,7 +12,7 @@ Console.WriteLine(Kata.IsValidWalk(new string[] { "w", "e", "w", "e", "w", "e", 
 Console.WriteLine(Kata.IsValidWalk(new string[] { "w" }));
 Console.WriteLine(Kata.IsValidWalk(new string[] { "n", "n", "n", "s", "n", "s", "n", "s", "n", "s" }));
 
-
+//as a note some comments may act as journal entries. this is like a public programming journal.
 public enum cardDir
 {
 	N,

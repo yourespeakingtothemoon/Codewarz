@@ -2,19 +2,38 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <queue>
 
+long queueTime(std::vector<int> customers, int till)
+{
+	std::vector<int> tills(till, 0);
+	for (auto customer : customers)
+	{
+		auto it = std::min_element(tills.begin(), tills.end());
+		*it += customer;
+	}
+	return *std::max_element(tills.begin(), tills.end());
+	
+	//this works, now to write it in C#, the C++ thing was an oopsie
+}
 int main()
 {
     std::cout << "Hello World!\n";
+	std::cout << queueTime({ 10,2,3,3 }, 2);
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/*
+* There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+input
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+    n: a positive integer, the number of checkout tills.
+
+output
+
+The function should return an integer, the total time required.
+
+*/
+
+
